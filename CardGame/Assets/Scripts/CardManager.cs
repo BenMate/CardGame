@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
+    public int shuffleCount = 5;
     public Sprite hidden;
 
     public CardObject cardObject1;
@@ -42,15 +43,18 @@ public class CardManager : MonoBehaviour
     {
         cardsInPlay = new List<Card>(cards);
 
-        var count = cardsInPlay.Count;
-        var last = count - 1;
-        for (var i = 0; i < last; ++i)
+        for (int j = 0; j < shuffleCount; j++)
         {
-            var r = Random.Range(i, count);
-            var tmp = cardsInPlay[i];
-            cardsInPlay[i] = cardsInPlay[r];
-            cardsInPlay[r] = tmp;
-        }
+            var count = cardsInPlay.Count;
+            var last = count - 1;
+            for (var i = 0; i < last; ++i)
+            {
+                var r = Random.Range(i, count);
+                var tmp = cardsInPlay[i];
+                cardsInPlay[i] = cardsInPlay[r];
+                cardsInPlay[r] = tmp;
+            }
+        }     
     }
 
     public void DrawNewCard()

@@ -171,14 +171,18 @@ public class HudManager : MonoBehaviour
     {
         cardManager.DrawNewCard();
 
+        bool didWin = false;
+
         switch (suit)
         {
-            case 1: if (cardManager.cardObject4.cardInfo.suit == Suits.diamond) ContinueGame(); break;
-            case 2: if (cardManager.cardObject4.cardInfo.suit == Suits.heart) ContinueGame(); break;
-            case 3: if (cardManager.cardObject4.cardInfo.suit == Suits.spade) ContinueGame(); break;
-            case 4: if (cardManager.cardObject4.cardInfo.suit == Suits.club) ContinueGame(); break;
-            default: Loser(); break;
+            case 1: if (cardManager.cardObject4.cardInfo.suit == Suits.diamond) didWin = true; break;
+            case 2: if (cardManager.cardObject4.cardInfo.suit == Suits.heart) didWin = true; break;
+            case 3: if (cardManager.cardObject4.cardInfo.suit == Suits.spade) didWin = true; break;
+            case 4: if (cardManager.cardObject4.cardInfo.suit == Suits.club) didWin = true; break;
         }
+
+        if (didWin) ContinueGame();
+        else Loser();        
     }
 
     public void Quit()
