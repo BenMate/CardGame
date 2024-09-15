@@ -12,6 +12,5 @@ public enum Suits
 public class Card : ScriptableObject
 {
     public int value;
-    public bool isRed;
     public Suits suit;
 }
