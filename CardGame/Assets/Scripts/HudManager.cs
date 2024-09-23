@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HudManager : MonoBehaviour
 {
@@ -187,7 +188,7 @@ public class HudManager : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit(); //go to menu for other games
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void StartGame()
