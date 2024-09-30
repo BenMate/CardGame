@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GetOffTheBus.unity
     guid: 2c01c014572bd1e4f9c74b844fc2ed41
+  - enabled: 1
+    path: Assets/Scenes/TicTacToe.unity
+    guid: f0afe37e43e540f4ba57ade3ca2017e1
   m_configObjects: {}
