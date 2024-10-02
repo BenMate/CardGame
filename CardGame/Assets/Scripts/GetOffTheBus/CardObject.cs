@@ -67,6 +67,11 @@ public class CardObject : MonoBehaviour
             numberText.text = "K";
             numberText2.text = "K";
         }
+        else if (value == 14) //ace
+        {
+            numberText.text = "A";
+            numberText2.text = "A";
+        }
         else
         {
             numberText.text = "Error";

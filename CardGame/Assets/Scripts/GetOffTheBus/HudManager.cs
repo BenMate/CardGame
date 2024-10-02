@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+//this is more of a game manager
 public class HudManager : MonoBehaviour
 {
     public GameObject redOrBlack;
@@ -56,7 +57,6 @@ public class HudManager : MonoBehaviour
     {
         ToggleAllOFf();
         higherOrLower.gameObject.SetActive(true);
-
     }
 
     void InOrOut()
@@ -95,7 +95,6 @@ public class HudManager : MonoBehaviour
     }
 
     //called by the buttons
-
     public void ColourGuessButton(bool isRedGuess)
     {
         cardManager.DrawNewCard();
@@ -152,9 +151,14 @@ public class HudManager : MonoBehaviour
             card1 = cardManager.cardObject2.cardInfo.value;
             card2 = cardManager.cardObject1.cardInfo.value;
         }
-        
+
+        //the new card is the same number
+        if (card1 == newCard || card2 == newCard)
+        {
+            ContinueGame();
+        }
         //check if the new card is in between card 1 and 2 or out
-        if (IsIn)
+        else if (IsIn)
         {
             if (newCard > card1 && newCard < card2)
                 ContinueGame();

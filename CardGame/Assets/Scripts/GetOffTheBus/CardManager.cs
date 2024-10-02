@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
+    public HudManager hm;
+
     public int shuffleCount = 5;
     public Sprite hidden;
 
@@ -63,16 +65,44 @@ public class CardManager : MonoBehaviour
         {
             cardObject1.gameObject.SetActive(true);
             cardObject1.UpdateCardInfo(cardsInPlay[0]);
+
+
+            //only activate if you havnt lost
+            if (!hm.loser.activeSelf)
+            {
+                cardObject2.gameObject.SetActive(true);
+                cardObject2.suitImage.sprite = hidden;
+                cardObject2.numberText.text = "";
+                cardObject2.numberText2.text = "";
+            }
         }
         else if (cardsDrawn.Count == 1)
         {
             cardObject2.gameObject.SetActive(true);
             cardObject2.UpdateCardInfo(cardsInPlay[0]);
+
+            //only activate if you havnt lost
+            if (!hm.loser.activeSelf)
+            {
+                cardObject3.gameObject.SetActive(true);
+                cardObject3.suitImage.sprite = hidden;
+                cardObject3.numberText.text = "";
+                cardObject3.numberText2.text = "";
+            }
         }
         else if (cardsDrawn.Count == 2)
         {
             cardObject3.gameObject.SetActive(true);
             cardObject3.UpdateCardInfo(cardsInPlay[0]);
+
+            //only activate if you havnt lost
+            if (!hm.loser.activeSelf)
+            {
+                cardObject4.gameObject.SetActive(true);
+                cardObject4.suitImage.sprite = hidden;
+                cardObject4.numberText.text = "";
+                cardObject4.numberText2.text = "";
+            }
         }
         else if (cardsDrawn.Count == 3)
         {
